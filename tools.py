@@ -33,3 +33,9 @@ def gcd(a, b):
         else:
             b = b - a
     return a
+
+def fact(n,acc=1):
+    if n == 1 or n == 0:
+        return acc
+    else:
+        return fact(n-1, n*acc)
