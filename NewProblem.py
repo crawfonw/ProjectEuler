@@ -3,9 +3,10 @@ import sys
 
 doc = """
 '''
-http://projecteuler.net/problem=%s
+http://projecteuler.net/problem={}
 Solution: N/A
-Runtime: N/A (with PyPy)
+Runtime: N/A
+With PyPy: N/A
 '''
 import time
 
@@ -23,7 +24,7 @@ if __name__ == "__main__":
 
 def create_file(n):
     f = open('Problem %s.py' % n,'w')
-    f.write(doc)
+    f.write(doc.format(n))
     f.close()
 
 def main():

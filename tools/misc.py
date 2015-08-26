@@ -34,8 +34,15 @@ def gcd(a, b):
             b = b - a
     return a
 
-def fact(n,acc=1):
-    if n == 1 or n == 0:
-        return acc
-    else:
-        return fact(n-1, n*acc)
+#http://stackoverflow.com/questions/2489435/how-could-i-check-if-a-number-is-a-perfect-square
+def is_square(posint):
+    if posint == 1 or posint == 0:
+        return True
+    x = posint // 2
+    seen = set([x])
+    while x * x != posint:
+        x = (x + (posint // x)) // 2
+        if x in seen:
+            return False
+        seen.add(x)
+    return True
