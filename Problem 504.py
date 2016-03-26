@@ -41,7 +41,10 @@ def get_points(p1,p2):
             return [(x,p1[1]) for x in range(p1[0],p2[0],-1)]
 
 def main():
-    m = 100
+    # need to reduce scope for larger m
+    # any two lattices with same values in different positions are in the same partition
+    # and can be skipped
+    m = 4
     print 'For m = %s,' % m
     quads_with_square_num_lattice_points = 0
     perms = itertools.product(range(1, m+1), repeat=4)
@@ -52,7 +55,7 @@ def main():
         A = area_of_quad(a,b,c,d)
         i = picks(A, num_boundary_points)
         if i != 1 and i != 0 and is_square(i):
-            #print (a,b,c,d), i
+            print (a,b,c,d), i
             quads_with_square_num_lattice_points += 1
 
     print '%s have a square number of lattice points.' % quads_with_square_num_lattice_points
